@@ -57,23 +57,11 @@ public class StreamAssignment {
         long amount = 0;
 
         //Write code here
-        List<Integer> allMembers = Arrays.asList();
-        IntSummaryStatistics stats = allMembers.stream().mapToInt((x) -> x).summaryStatistics();
-
-        System.out.println(" ");
-
-        System.out.println("Summary of all members: " + stats.getSum());
-        List<Long> list = Arrays.asList();
-        list.stream().forEach(System.out::println);
-
-        System.out.println(" ");
-
-        long count = people.stream().filter(c -> c.getPersonId() > 10000).count();
-
-        System.out.println(" ");
-
-        //not sure if this is right
-        people.stream().forEach(System.out::println);
+        List<Long> filtered =
+                Collections.singletonList(people
+                        .stream()
+                        .count());
+        System.out.println(filtered);
 
         assertEquals(10000, amount);
 
