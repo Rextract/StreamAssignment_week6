@@ -8,6 +8,7 @@ import se.lexicon.vxo.model.Gender;
 import se.lexicon.vxo.model.Person;
 import se.lexicon.vxo.model.PersonDto;
 
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -118,9 +119,15 @@ public class StreamAssignment {
     @Test
     public void task5(){
         int expectedSize = 8882;
-        Set<LocalDate> dates = null;
+        Set<LocalDate> dates = new TreeSet<>();
 
         //Write code here
+        List<LocalDate> birthDates = people.stream()
+                .map(Person::getDateOfBirth)
+                .collect(Collectors.toList());
+        System.out.println(birthDates);
+
+
 
         assertNotNull(dates);
         assertTrue(dates instanceof TreeSet);
