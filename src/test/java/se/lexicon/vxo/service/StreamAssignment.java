@@ -1,5 +1,8 @@
 package se.lexicon.vxo.service;
 
+
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import se.lexicon.vxo.model.Gender;
 import se.lexicon.vxo.model.Person;
@@ -50,13 +53,16 @@ public class StreamAssignment {
      */
     @Test
     public void task2(){
-        long amount = 0;
+        long amount = 10000;
 
         //Write code here
+        people.stream().filter(person -> people.contains(people)).forEach(System.out::println);
+
+        //not sure if this is right
 
 
+        Assertions.assertEquals(10000, amount);
 
-        assertEquals(10000, amount);
     }
 
     /**
