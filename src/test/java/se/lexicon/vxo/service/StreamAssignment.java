@@ -57,22 +57,25 @@ public class StreamAssignment {
         long amount = 0;
 
         //Write code here
-      //  List<Integer> allMembers = Arrays.asList();
-      //  IntSummaryStatistics stats = allMembers.stream().mapToInt((x) -> x).summaryStatistics();
+        List<Integer> allMembers = Arrays.asList();
+        IntSummaryStatistics stats = allMembers.stream().mapToInt((x) -> x).summaryStatistics();
 
-       // System.out.println("Summary of all members: " + stats.getSum());
-        List<Long> list = Arrays.asList(amount);
-        long total = list.stream().count();
-        System.out.println(total);
+        System.out.println(" ");
 
+        System.out.println("Summary of all members: " + stats.getSum());
+        List<Long> list = Arrays.asList();
+        list.stream().forEach(System.out::println);
 
-       // long count = people.stream().filter(c -> c.getPersonId() > 10000).count();
+        System.out.println(" ");
+
+        long count = people.stream().filter(c -> c.getPersonId() > 10000).count();
+
+        System.out.println(" ");
 
         //not sure if this is right
-      //  people.stream().forEach(System.out::println);
+        people.stream().forEach(System.out::println);
 
         assertEquals(10000, amount);
-
 
     }
 
@@ -85,6 +88,14 @@ public class StreamAssignment {
         int expected = 90;
 
         //Write code here
+        List<Person> filtered = people
+                .stream()
+                .filter(a -> a.getLastName().endsWith("Andersson"))
+                .collect(Collectors.toList());
+        System.out.println(filtered);
+
+        people.stream().filter(a -> a.getLastName().endsWith("Andersson"))
+                .forEach(System.out::println);
 
 
         assertEquals(expected, amount);
