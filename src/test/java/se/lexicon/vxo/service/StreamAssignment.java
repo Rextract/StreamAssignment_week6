@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -82,7 +83,8 @@ public class StreamAssignment {
                 .collect(Collectors.toList());
         System.out.println(filtered);
 
-        people.stream().filter(a -> a.getLastName().endsWith("Andersson"))
+        people.stream()
+                .filter(a -> a.getLastName().endsWith("Andersson"))
                 .forEach(System.out::println);
 
 
@@ -95,9 +97,15 @@ public class StreamAssignment {
     @Test
     public void task4(){
         int expectedSize = 4988;
-        List<Person> females = null;
+        List<Person> females = people;
 
         //Write code here
+        females
+                .stream()
+                .filter(f -> f.getGender().equals(Gender.FEMALE))
+                .forEach(System.out::println);
+
+
 
 
         assertNotNull(females);
