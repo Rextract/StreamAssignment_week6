@@ -2,7 +2,7 @@ package se.lexicon.vxo.service;
 
 
 
-import org.junit.jupiter.api.Assertions;
+import java.util.IntSummaryStatistics;
 import org.junit.jupiter.api.Test;
 import se.lexicon.vxo.model.Gender;
 import se.lexicon.vxo.model.Person;
@@ -14,6 +14,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,15 +54,25 @@ public class StreamAssignment {
      */
     @Test
     public void task2(){
-        long amount = 10000;
+        long amount = 0;
 
         //Write code here
-        people.stream().filter(person -> people.contains(people)).forEach(System.out::println);
+      //  List<Integer> allMembers = Arrays.asList();
+      //  IntSummaryStatistics stats = allMembers.stream().mapToInt((x) -> x).summaryStatistics();
+
+       // System.out.println("Summary of all members: " + stats.getSum());
+        List<Long> list = Arrays.asList(amount);
+        long total = list.stream().count();
+        System.out.println(total);
+
+
+       // long count = people.stream().filter(c -> c.getPersonId() > 10000).count();
 
         //not sure if this is right
+      //  people.stream().forEach(System.out::println);
 
+        assertEquals(10000, amount);
 
-        Assertions.assertEquals(10000, amount);
 
     }
 
@@ -74,6 +85,7 @@ public class StreamAssignment {
         int expected = 90;
 
         //Write code here
+
 
         assertEquals(expected, amount);
     }
