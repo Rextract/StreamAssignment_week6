@@ -145,6 +145,9 @@ public class StreamAssignment {
 
         //Write code here
 
+
+
+
         assertNotNull(result);
         assertEquals(expectedLength, result.length);
     }
